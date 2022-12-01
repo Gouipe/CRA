@@ -131,7 +131,7 @@
     <Compile Include="Context\GlobalValues.cs" />
     <Compile Include="Controllers\AuthentificationController.cs" />
     <Compile Include="Controllers\LigneSaisiesController.cs" />
-    <Compile Include="Controllers\MissionsController.cs" />
+    <Compile Include="Controllers\MissionsControllerSoluce.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,11 +183,11 @@
     <Content Include="Views\Shared\_adminLayout.cshtml" />
     <Content Include="Views\Authentification\Accueil.cshtml" />
     <Content Include="Views\User\CompteRendu.cshtml" />
-    <Content Include="Views\Missions\Create.cshtml" />
-    <Content Include="Views\Missions\Delete.cshtml" />
-    <Content Include="Views\Missions\Details.cshtml" />
-    <Content Include="Views\Missions\Edit.cshtml" />
-    <Content Include="Views\Missions\Index.cshtml" />
+    <Content Include="Views\MissionsSoluce\Create.cshtml" />
+    <Content Include="Views\MissionsSoluce\Delete.cshtml" />
+    <Content Include="Views\MissionsSoluce\Details.cshtml" />
+    <Content Include="Views\MissionsSoluce\Edit.cshtml" />
+    <Content Include="Views\MissionsSoluce\Index.cshtml" />
     <Content Include="Views\Shared\_userLayout.cshtml" />
     <Content Include="Views\User\UpdateLigne.cshtml" />
     <Content Include="Views\User\AjoutLigne.cshtml" />

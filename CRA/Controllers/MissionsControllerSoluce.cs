@@ -11,7 +11,7 @@ using CRA.Models;
 
 namespace CRA.Controllers
 {
-    public class MissionsController : Controller
+    public class MissionsControllerSoluce : Controller
     {
         private CRAContext db = new CRAContext();
 
