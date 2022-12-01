@@ -1,0 +1,32 @@
+﻿@model CRA.Models.LigneSaisie
+@{
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+    ViewBag.Title = "Modifier ligne de saisie";
+}
+
+<h2>UpdateLigne</h2>
+
+@using (Html.BeginForm("UpdateLigne", "User", FormMethod.Post))
+{
+    <div>
+        <label>Mission</label>
+        @Html.DropDownListFor(model => model.Mission, new SelectList(ViewBag.currentEmployee.Missions))
+    </div>
+    <div>
+        @Html.LabelFor(model => model.MissionDay)
+        <input type="date" name="date" />
+        @Html.ValidationMessageFor(model => model.MissionDay)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Comment)
+        @Html.EditorFor(model => model.Comment)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.FractionDay)
+        <select name="fractionDay">
+            <option>matin</option>
+            <option>apres_midi</option>
+        </select>
+    </div>
+    <input type="submit" value="Ajouter Ligne Saisie" />
+}

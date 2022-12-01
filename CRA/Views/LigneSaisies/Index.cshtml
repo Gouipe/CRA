@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CRA.Models.LigneSaisie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MissionDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SendingDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FractionDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MissionDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SendingDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FractionDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Ligne_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Ligne_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Ligne_id })
+        </td>
+    </tr>
+}
+
+</table>
