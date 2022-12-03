@@ -32,3 +32,15 @@ textarea {
 .sent {
     background-color: yellow;
 }
+
+.saved {
+    background-color: orange;
+}
+
+.approved {
+    background-color: green;
+}
+
+.refused {
+    background-color: red;
+}

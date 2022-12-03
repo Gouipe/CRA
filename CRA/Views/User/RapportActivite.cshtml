@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+    ViewBag.Title = "Rapport d'activité";
+}
+
+
+@* CHOIX MOIS *@
+<h3>Choix mois</h3>
+<div>
+    @using (Html.BeginForm("RapportActivite", "User", FormMethod.Post))
+    {
+        <select name="mois">
+            <option>Janvier</option>
+            <option>Fevrier</option>
+            <option>Mars</option>
+            <option>Avril</option>
+            <option>Mai</option>
+            <option>Juin</option>
+            <option>Juiller</option>
+            <option>Aout</option>
+            <option>Septembre</option>
+            <option>Octobre</option>
+            <option>Novembre</option>
+            <option>Decembre</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Choisir Mois</button>
+    }
+    </div>
+<br />
+
+@* AFFICHAGE RAPPORT ACTIVITE*@
+<h3>Nombre de demi-journées travaillées par mission :</h3>
+@foreach(KeyValuePair<CRA.Models.Mission, int> entry in ViewBag.workDays)
+{
+    <p>@entry.Key : @entry.Value</p>
+}

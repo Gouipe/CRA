@@ -3,6 +3,8 @@
     Layout = "~/Views/Shared/_userLayout.cshtml";
     ViewBag.Title = "Compte Rendu";
 }
+
+@* FEEDBACK LE CAS ECHEANT *@
 @if (ViewBag.feedback != null)
 {
     <script>
@@ -11,23 +13,24 @@
 }
 
 <br />
-
+@* CHOIX SEMAINE *@
 <h2>Choix semaine</h2>
 <div>
     @using (Html.BeginForm("CompteRendu", "User", FormMethod.Post))
     {
-        <input type="date" name="date" />
-        <input type="submit" value="Choix semaine" />
+        <input type="date" name="date" /><br/><br />
+        <button type="submit" class="btn btn-primary">Choisir Semaine</button>
     }
 </div>
 <br />
 
+@* FORMULAIRE POUR AJOUTER UNE LIGNE DE SAISIE *@
 <h2>Ajouter une ligne de saisie</h2>
 <div>
     <form action="/User/AjoutLigne" method="post">
         <div>
             <label>Mission</label>
-            <select data-val="true" data-val-required="Le champ Mission est requis." id="Mission" name="Mission">
+            <select data-val="true" id="Mission" name="Mission">
                 @foreach (var mission in ViewBag.currentEmployee.Missions)
                 {
                     <option>@mission</option>
@@ -51,10 +54,12 @@
                 <option>apres_midi</option>
             </select>
         </div>
-        <input type="submit" value="Ajouter Ligne Saisie">
+        <button type="submit" class="btn btn-primary">Ajouter une ligne de saisie</button>
+
     </form>
 </div>
 
+@* AFFICHAGE DES LIGNES DE SAISIES DE LA SEMAINE COURANTE *@
 @if (ViewBag.lignes != null)
 {
     <h2>Lignes déjà saisies:</h2>
@@ -77,18 +82,26 @@
                 <td>@(ligne.Mission.Libelle)</td>
                 <td>@(ligne.Comment) </td>
                 <td>
-                    @if (ligne.State != "sent")
+                    @if (ligne.State != "sent" && ligne.State != "approved")
                     {@Html.ActionLink("Modifier", "UpdateLigne", new { id = ligne.Ligne_id })}
                 </td>
                 <td>@Html.ActionLink("Supprimer", "DeleteLigne", new { id = ligne.Ligne_id })</td>
 
             </tr>
-            
-            }
 
-</table>
+        }
+
+    </table>
 }
 
+
+@* BOUTON POUR SAUVEGARDER DES LIGNES DE SAISIES *@
+@using (Html.BeginForm("SauverLignes", "User", FormMethod.Post))
+{
+    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+}
+</br>
+@* BOUTON POUR ENVOYER LES LIGNES DE SAISIES DEJA SAUVEES *@
 @using (Html.BeginForm("EnvoyerLignes", "User", FormMethod.Post))
 {
     <button type="submit" class="btn btn-primary">Envoyer</button>

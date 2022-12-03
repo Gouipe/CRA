@@ -38,6 +38,6 @@ namespace CRA.Models
         public Employee Employee { get; set; }
 
         [Required]
-        public Mission Mission { get; set; }
+        public virtual Mission Mission { get; set; }
     }
 }

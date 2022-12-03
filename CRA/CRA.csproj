@@ -130,7 +130,6 @@
     <Compile Include="Context\CRAContext.cs" />
     <Compile Include="Context\GlobalValues.cs" />
     <Compile Include="Controllers\AuthentificationController.cs" />
-    <Compile Include="Controllers\LigneSaisiesController.cs" />
     <Compile Include="Controllers\MissionsControllerSoluce.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,11 +190,7 @@
     <Content Include="Views\Shared\_userLayout.cshtml" />
     <Content Include="Views\User\UpdateLigne.cshtml" />
     <Content Include="Views\User\AjoutLigne.cshtml" />
-    <Content Include="Views\LigneSaisies\Create.cshtml" />
-    <Content Include="Views\LigneSaisies\Delete.cshtml" />
-    <Content Include="Views\LigneSaisies\Details.cshtml" />
-    <Content Include="Views\LigneSaisies\Edit.cshtml" />
-    <Content Include="Views\LigneSaisies\Index.cshtml" />
+    <Content Include="Views\User\RapportActivite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
