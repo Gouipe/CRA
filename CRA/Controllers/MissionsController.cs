@@ -11,7 +11,7 @@ using CRA.Models;
 
 namespace CRA.Controllers
 {
-    public class MissionsControllerSoluce : Controller
+    public class MissionsController : Controller
     {
         private CRAContext db = new CRAContext();
 
@@ -22,7 +22,7 @@ namespace CRA.Controllers
         }
 
         // GET: Missions/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -47,7 +47,7 @@ namespace CRA.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Code,Libelle")] Mission mission)
+        public ActionResult Create([Bind(Include = "Mission_id,Code,Libelle")] Mission mission)
         {
             if (ModelState.IsValid)
             {
@@ -59,8 +59,8 @@ namespace CRA.Controllers
             return View(mission);
         }
 
-        // GET: Missions/Edit/5 
-        public ActionResult Edit(string id)
+        // GET: Missions/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -79,7 +79,7 @@ namespace CRA.Controllers
         // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Code,Libelle")] Mission mission)
+        public ActionResult Edit([Bind(Include = "Mission_id,Code,Libelle")] Mission mission)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace CRA.Controllers
         }
 
         // GET: Missions/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -108,7 +108,7 @@ namespace CRA.Controllers
         // POST: Missions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Mission mission = db.Missions.Find(id);
             db.Missions.Remove(mission);

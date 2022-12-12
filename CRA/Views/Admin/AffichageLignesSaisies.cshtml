@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CRA.Models.LigneSaisie>
+@{
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    ViewBag.Title = "AffichageLignesSaisies";
+}
+
+<h2>Validation des lignes de saisies envoyées</h2>
+
+@if (ViewBag.lignesEnvoyees != null)
+{
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Employee)</th>
+            <th>@Html.DisplayNameFor(model => model.MissionDay)</th>
+            <th>@Html.DisplayNameFor(model => model.FractionDay)</th>
+            <th>@Html.DisplayNameFor(model => model.Mission)</th>
+            <th>@Html.DisplayNameFor(model => model.Comment)</th>
+            <th>Valider</th>
+            <th>Refuser</th>
+        </tr>
+        @foreach (var ligne in ViewBag.lignesEnvoyees)
+        {
+            <tr>
+                <td>@(ligne.Employee)</td>
+                <td>@(ligne.MissionDay.ToShortDateString())</td>
+                <td>@(ligne.FractionDay)</td>
+                <td>@(ligne.Mission.Libelle)</td>
+                <td>@(ligne.Comment) </td>
+                <td>
+                    @Html.ActionLink("Valider", "Valider", new { id = ligne.Ligne_id })
+                </td>
+                <td>@Html.ActionLink("Refuser", "Refuser", new { id = ligne.Ligne_id })</td>
+
+            </tr>
+        }
+    </table>
+}
+

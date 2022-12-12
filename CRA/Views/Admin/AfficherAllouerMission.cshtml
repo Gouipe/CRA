@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    ViewBag.Title = "AllouerMission";
+}
+
+<h2>Allouer Mission</h2>
+
+@* FEEDBACK LE CAS ECHEANT *@
+@if (ViewBag.feedback != null)
+{
+    <script>
+        window.alert("@ViewBag.feedback");
+    </script>
+}
+
+@* FORMULAIRE POUR SSOCIER UNE MISSION A UN EMPLOYE *@
+<form action="/Admin/AllouerMission" method="post">
+    <div>
+        <select name="missionId">
+            @foreach (var mission in ViewBag.Missions)
+            {
+                <option value="@mission.Mission_id">@mission</option>
+            }
+        </select>
+        <select name="employeeId">
+            @foreach (var employee in ViewBag.Employees)
+            {
+                <option value="@employee.EmployeeId">@employee</option>
+            }
+        </select>
+        <button type="submit" class="btn btn-primary">Allouer une mission</button>
+    </div>
+</form>

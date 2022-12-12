@@ -21,6 +21,7 @@ namespace CRA.Models
 
         // Jour pendant lequel la saisie  a été envoyée
         public DateTime SendingDay { get; set; }
+
         [DisplayName("Commentaire")]
         public string Comment { get; set; }
 
@@ -35,7 +36,7 @@ namespace CRA.Models
         public string State { get; set; }
 
         [Required]
-        public Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
 
         [Required]
         public virtual Mission Mission { get; set; }

@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<CRA.Models.Mission>
 
 @{
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
     ViewBag.Title = "Index";
 }
 
@@ -12,6 +13,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Libelle)
         </th>
         <th></th>
@@ -20,12 +24,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Libelle)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Code }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Code }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Code })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Mission_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Mission_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Mission_id })
         </td>
     </tr>
 }

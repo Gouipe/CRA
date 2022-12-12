@@ -1,4 +1,5 @@
 ﻿using CRA.Context;
+using CRA.Filters;
 using CRA.Models;
 using Microsoft.Ajax.Utilities;
 using System;
@@ -13,16 +14,15 @@ using System.Web.WebPages;
 
 namespace CRA.Controllers
 {
+    [UserFilter]
     public class UserController : Controller
     {
         //Récupération du contexte
         CRAContext db = new CRAContext();
-        // Semaine sélectionnée pour savoir quelles missions afficher
-        
-        // GET: User
         public ActionResult CompteRendu(string date=null)
         {
-            /***RECUPERATION DES LIGNES DE SAISIES****/
+            /**************** RECUPERATION DES LIGNES DE SAISIES ***********************/
+
             //Outils pour gestion des dates:
             CultureInfo myCI = new CultureInfo("fr-FR");
             Calendar myCal = myCI.Calendar;      
@@ -43,10 +43,12 @@ namespace CRA.Controllers
             IEnumerable<LigneSaisie> lignes = db.LigneSaisies.Where(m => m.Employee.EmployeeId == currentEmployeeId);
             // on garde les lignes de saisie correspondant à la derniere semaine choisie et on les passe à la vue
             ViewBag.lignes = lignes.Where(m => myCal.GetWeekOfYear(m.MissionDay, myCWR, myFirstDOW) == GlobalValues.ChosenWeek).ToList();
-            /****************************************/
+
+            /*************************************************************************/
 
             //On passe l'employé courant à la vue pour pouvoir choisir parmi ses missions dans le formulaire
             ViewBag.currentEmployee = currentEmployee;
+            ViewBag.ChosenWeek = GlobalValues.ChosenWeek;
             return View();
             
         }

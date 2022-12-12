@@ -1,4 +1,5 @@
 ﻿using CRA.Context;
+using CRA.Filters;
 using CRA.Models;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,13 @@ using System.Web.Mvc;
 
 namespace CRA.Controllers
 {
+
     public class AuthentificationController : Controller
     {
         CRAContext db = new CRAContext();
 
         // GET: Authentification
+        [AuthenticationFilter]
         public ActionResult Accueil()
         {
             return PartialView();
@@ -29,13 +32,11 @@ namespace CRA.Controllers
 
                 if (emp.Role == "user")
                 {
-                    //TODO
                     return RedirectToAction("CompteRendu","User");
                 }
-                else //role =="admin"
+                else //role == "admin"
                 {
-                    //TODO
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("AffichageLignesSaisies", "Admin");
                 }
             }
             else

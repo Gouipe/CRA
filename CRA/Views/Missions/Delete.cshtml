@@ -1,6 +1,7 @@
 ﻿@model CRA.Models.Mission
 
 @{
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
     ViewBag.Title = "Delete";
 }
 
@@ -11,6 +12,14 @@
     <h4>Mission</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Libelle)
         </dt>

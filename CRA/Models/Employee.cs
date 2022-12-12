@@ -30,5 +30,10 @@ namespace CRA.Models
 
         public virtual List<LigneSaisie> LigneSaisies { get; set; }
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
     }
 }
