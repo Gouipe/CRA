@@ -13,20 +13,11 @@
 }
 
 <br />
-@* CHOIX SEMAINE *@
-<h2>Choix semaine</h2>
-<div>
-    @using (Html.BeginForm("CompteRendu", "User", FormMethod.Post))
-    {
-        <input type="date" name="date" /><br/><br />
-        <button type="submit" class="btn btn-primary">Choisir Semaine</button>
-    }
-</div>
-<br />
 
 @* FORMULAIRE POUR AJOUTER UNE LIGNE DE SAISIE *@
-<h2>Ajouter une ligne de saisie</h2>
-<div>
+
+<div id="addLineForm">
+    <h2>Ajouter une ligne de saisie</h2>
     <form action="/User/AjoutLigne" method="post">
         <div>
             <label>Mission</label>
@@ -58,6 +49,18 @@
 
     </form>
 </div>
+
+
+@* CHOIX SEMAINE *@
+<h2>Choix semaine</h2>
+<div>
+    @using (Html.BeginForm("CompteRendu", "User", FormMethod.Post))
+    {
+        <input type="date" name="date" /><br /><br />
+        <button type="submit" class="btn btn-primary">Choisir Semaine</button>
+    }
+</div>
+<br />
 
 @* AFFICHAGE DES LIGNES DE SAISIES DE LA SEMAINE COURANTE *@
 @if (ViewBag.lignes != null)
@@ -93,9 +96,9 @@
 
     </table>
     if (ViewBag.ChosenWeek == -1)
-         {
-            <p>Aucune semaine sélectionnée </p>
-         }
+    {
+        <p>Aucune semaine sélectionnée </p>
+    }
 }
 
 

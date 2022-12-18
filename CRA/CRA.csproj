@@ -134,6 +134,7 @@
     <Compile Include="Controllers\MissionsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\AuthenticationFilter.cs" />
+    <Compile Include="Filters\AdminFilter.cs" />
     <Compile Include="Filters\UserFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

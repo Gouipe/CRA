@@ -7,10 +7,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CRA.Context;
+using CRA.Filters;
 using CRA.Models;
 
 namespace CRA.Controllers
 {
+    [AdminFilter]
+
     public class MissionsController : Controller
     {
         private CRAContext db = new CRAContext();

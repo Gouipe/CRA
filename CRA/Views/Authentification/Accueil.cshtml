@@ -13,18 +13,19 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <h2>Authentification</h2>
+    
 
-    <div class="form-group">
+    <div class="form-group" style="margin: 0 auto; width: 100px;">
+        <h2>Authentification</h2>
         @using (Html.BeginForm("Authenticate", "Authentification", FormMethod.Post))
         {
 
             <div class="form-outline mb-4">
-                Username:
+                Identifiant:
                 <input type="text" name="username" />
             </div>
             <div class="form-outline mb-4">
-                Password:
+                Mot de passe:
                 <input type="text" name="password" />
             </div>
 

@@ -23,7 +23,7 @@ namespace CRA.Controllers
 
         public ActionResult Authenticate(string username, string password)
         {
-            Employee emp = db.Employees.SingleOrDefault(a => a.Name == username && a.Password == password);
+            Employee emp = db.Employees.FirstOrDefault(a => a.Name == username && a.Password == password);
             if (emp != null)
             {
                 // Mis a jour de l'attribut IsActive dans la base de données car l'employé est maintenant connecté

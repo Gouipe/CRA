@@ -33,6 +33,7 @@ textarea {
     background-color: yellow;
 }
 
+
 .saved {
     background-color: orange;
 }
@@ -43,4 +44,8 @@ textarea {
 
 .refused {
     background-color: red;
+}
+
+#addLineForm{
+    border : 1px solid black;
 }

@@ -1,4 +1,5 @@
 ﻿using CRA.Context;
+using CRA.Filters;
 using CRA.Models;
 using System;
 using System.Collections;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace CRA.Controllers
 {
+    [AdminFilter]
     public class AdminController : Controller
     {
         CRAContext db = new CRAContext();
@@ -16,6 +18,8 @@ namespace CRA.Controllers
         // GET: Admin
         public ActionResult AffichageLignesSaisies()
         {
+
+            //on récupère toutes les lignes de saisies envoyées par des employés
             IEnumerable<LigneSaisie> lignesEnvoyees = db.LigneSaisies.Where(ligne => ligne.State == "sent");
             ViewBag.lignesEnvoyees = lignesEnvoyees.ToList();
 
